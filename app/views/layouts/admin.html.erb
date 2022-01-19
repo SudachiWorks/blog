@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>Blog</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css">
     <%= stylesheet_link_tag "admin", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags "admin" %>
   </head>
 
-  <body class="hold-transition sidebar-mini layout-fixed">
-  <div class="wrapper">
-    <%= render Admin::NavbarComponent.new %>
-    <%= yield %>
-  </div>
+  <body>
+  <%= render Admin::NavbarComponent.new if logged_in? %>
+  <%= yield %>
   </body>
 </html>

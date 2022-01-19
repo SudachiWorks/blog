@@ -17,6 +17,11 @@ class AdminController < ApplicationController
   end
   helper_method :logged_in?
 
+  def userinfo
+    @userinfo ||= session[:userinfo]
+  end
+  helper_method :userinfo
+
   def render_not_found_error(error = nil)
     if error
       logger.info "Rendering 404 with #{error.class}: #{error.message}"
