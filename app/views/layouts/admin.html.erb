@@ -11,7 +11,10 @@
     <%= javascript_importmap_tags "admin" %>
   </head>
 
-  <body>
+  <body class="hold-transition sidebar-mini layout-fixed">
+  <div class="wrapper">
+    <%= render Admin::NavbarComponent.new %>
     <%= yield %>
+  </div>
   </body>
 </html>
