@@ -2,7 +2,10 @@
 class Auth0Controller < ApplicationController
   def callback
     auth_info = request.env["omniauth.auth"]
-    session[:userinfo] = auth_info["extra"]["raw_info"]
+    session[:userinfo] = {
+      uid: auth_info["uid"],
+      name: auth_info["info"]["name"]
+    }
     redirect_to admin_root_path
   end
 

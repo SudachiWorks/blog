@@ -11,5 +11,5 @@ development:
   database: <%= ENV.fetch("POSTGRES_DATABASE") { "blog_development" } %>
 
 test:
-  <<: *default
-  database: blog_test
+  adapter: sqlite3
+  database: ":memory:"
