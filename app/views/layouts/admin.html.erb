@@ -13,6 +13,7 @@
 
   <body>
   <%= render Admin::NavbarComponent.new if logged_in? %>
+  <%= render Admin::FlashMessageComponent.new %>
   <%= yield %>
   </body>
 </html>

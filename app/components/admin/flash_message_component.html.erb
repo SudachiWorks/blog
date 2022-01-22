@@ -1,0 +1,8 @@
+<% @alerts.each do |alert| %>
+  <div class="container mt-3">
+    <div class="alert <%= alert[:class] %> alert-dismissible fade show">
+      <%= alert[:message] %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+  </div>
+<% end %>

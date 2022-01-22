@@ -1,0 +1,21 @@
+<%= form_with model: site, url: admin_site_path, id: dom_id(site, :form) do |form| %>
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_field :description, class: "form-control" %>
+  </div>
+
+  <%= form.submit class: "btn btn-primary" %>
+
+  <% if site.errors.any? %>
+    <ul class="alert alert-danger mt-3 ps-4">
+      <% site.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>

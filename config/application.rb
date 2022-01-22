@@ -12,12 +12,17 @@ module Blog
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
-    # Configuration for the application, engines, and railties goes here.
-    #
-    # These settings can be overridden in specific environments using the files
-    # in config/environments, which are processed later.
-    #
-    # config.time_zone = "Central Time (US & Canada)"
-    # config.eager_load_paths << Rails.root.join("extras")
+    config.time_zone = ENV.fetch("TZ") { "Asia/Tokyo" }
+    config.active_record.default_timezone = :local
+
+    config.generators do |g|
+      g.assets     false
+      g.helper     false
+    end
+
+    config.middleware.insert_after ActionDispatch::Static, Rack::Deflater
+    config.action_dispatch.cookies_same_site_protection = :lax
+
+    config.action_view.field_error_proc = Proc.new { |html_tag, _instance| html_tag }
   end
 end

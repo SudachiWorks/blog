@@ -22,6 +22,11 @@ class AdminController < ApplicationController
   end
   helper_method :userinfo
 
+  def site
+    @site ||= (Site.first || Site.create)
+  end
+  helper_method :site
+
   def render_not_found_error(error = nil)
     if error
       logger.info "Rendering 404 with #{error.class}: #{error.message}"

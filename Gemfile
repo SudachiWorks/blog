@@ -27,7 +27,7 @@ end
 group :development do
   gem "rack-mini-profiler"
   gem "rubocop"
-  gem "rubocop-github", github: "github/rubocop-github", branch: "master"
+  gem "rubocop-github"
   gem "rubocop-rails"
   gem "web-console"
 end

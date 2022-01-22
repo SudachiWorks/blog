@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace "admin" do
     root "root#index"
 
-    resource :login, only: :show
+    resource "login", only: :show
+    resource "site", only: %i[edit update]
   end
 end
