@@ -11,5 +11,7 @@ Rails.application.routes.draw do
 
     resource "login", only: :show
     resource "site", only: %i[edit update]
+
+    resources "posts"
   end
 end

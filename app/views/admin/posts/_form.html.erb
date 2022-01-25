@@ -1,0 +1,30 @@
+<%= tag.div id: dom_id(post, :form) do %>
+  <%= form_with model: post, url: [:admin, post] do |form| %>
+    <div class="card mt-4">
+      <div class="card-body">
+        <div class="mb-3">
+          <%= form.text_field :title, class: "form-control ", placeholder: "タイトル" %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.rich_text_area :content, placeholder: "投稿" %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :posted_at, "投稿日時", class: "form-label" %>
+          <%= form.datetime_field :posted_at, class: "form-control" %>
+        </div>
+
+        <%= form.submit class: "btn btn-primary" %>
+
+        <% if post.errors.any? %>
+          <ul class="alert alert-danger mt-3 ps-4">
+            <% post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
